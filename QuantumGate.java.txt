@@ -1,0 +1,21 @@
+// QuantumGate.java
+public class QuantumGate {
+
+    // Hadamard gate: Creates superposition
+    public static final Complex[][] HADAMARD = {
+            { new Complex(1 / Math.sqrt(2), 0), new Complex(1 / Math.sqrt(2), 0) },
+            { new Complex(1 / Math.sqrt(2), 0), new Complex(-1 / Math.sqrt(2), 0) }
+    };
+
+    // Pauli-X gate: Flips the qubit state (like a NOT gate)
+    public static final Complex[][] PAULI_X = {
+            { new Complex(0, 0), new Complex(1, 0) },
+            { new Complex(1, 0), new Complex(0, 0) }
+    };
+
+    // Identity gate: Does nothing to the qubit
+    public static final Complex[][] IDENTITY = {
+            { new Complex(1, 0), new Complex(0, 0) },
+            { new Complex(0, 0), new Complex(1, 0) }
+    };
+}

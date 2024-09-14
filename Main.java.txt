@@ -1,0 +1,21 @@
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+        // Create a quantum circuit with 1 qubit
+        QuantumCircuit circuit = new QuantumCircuit(1);
+
+        // Apply a Hadamard gate to qubit 0 (putting it into superposition)
+        circuit.applyGate(QuantumGate.HADAMARD, 0);
+
+        // Print the state of the qubit after applying the Hadamard gate
+        System.out.println("After applying Hadamard gate:");
+        circuit.printQubitStates();
+
+        // Apply a Pauli-X gate (flipping the qubit state)
+        circuit.applyGate(QuantumGate.PAULI_X, 0);
+
+        // Print the state of the qubit after applying the Pauli-X gate
+        System.out.println("After applying Pauli-X gate:");
+        circuit.printQubitStates();
+    }
+}

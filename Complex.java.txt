@@ -1,0 +1,28 @@
+// Complex.java
+public class Complex {
+    private double real;
+    private double imaginary;
+
+    // Constructor for complex number
+    public Complex(double real, double imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+    // Complex addition
+    public Complex add(Complex other) {
+        return new Complex(this.real + other.real, this.imaginary + other.imaginary);
+    }
+
+    // Complex multiplication
+    public Complex multiply(Complex other) {
+        double newReal = this.real * other.real - this.imaginary * other.imaginary;
+        double newImaginary = this.real * other.imaginary + this.imaginary * other.real;
+        return new Complex(newReal, newImaginary);
+    }
+
+    // Magnitude squared of the complex number (used for probabilities)
+    public double magnitudeSquared() {
+        return this.real * this.real + this.imaginary * this.imaginary;
+    }
+}

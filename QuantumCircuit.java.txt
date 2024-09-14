@@ -1,0 +1,26 @@
+// QuantumCircuit.java
+import java.util.ArrayList;
+
+public class QuantumCircuit {
+    private ArrayList<Qubit> qubits;
+
+    // Constructor: Create a quantum circuit with a specified number of qubits
+    public QuantumCircuit(int numQubits) {
+        qubits = new ArrayList<>();
+        for (int i = 0; i < numQubits; i++) {
+            qubits.add(new Qubit());
+        }
+    }
+
+    // Apply a quantum gate to a specific qubit
+    public void applyGate(Complex[][] gate, int qubitIndex) {
+        qubits.get(qubitIndex).applyGate(gate);
+    }
+
+    // Output the current state of all qubits
+    public void printQubitStates() {
+        for (int i = 0; i < qubits.size(); i++) {
+            System.out.printf("Qubit %d: %s\n", i, qubits.get(i));
+        }
+    }
+}

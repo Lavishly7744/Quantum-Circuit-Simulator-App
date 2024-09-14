@@ -1,0 +1,35 @@
+// Qubit.java
+import java.util.Random;
+
+public class Qubit {
+    private Complex amplitude0;  // Amplitude for |0⟩
+    private Complex amplitude1;  // Amplitude for |1⟩
+
+    // Constructor: Initialize qubit in |0⟩ state (amplitude 1 for |0⟩, 0 for |1⟩)
+    public Qubit() {
+        this.amplitude0 = new Complex(1, 0);
+        this.amplitude1 = new Complex(0, 0);
+    }
+
+    // Apply a quantum gate by changing the amplitudes
+    public void applyGate(Complex[][] gateMatrix) {
+        Complex newAmplitude0 = amplitude0.multiply(gateMatrix[0][0]).add(amplitude1.multiply(gateMatrix[0][1]));
+        Complex newAmplitude1 = amplitude0.multiply(gateMatrix[1][0]).add(amplitude1.multiply(gateMatrix[1][1]));
+        this.amplitude0 = newAmplitude0;
+        this.amplitude1 = newAmplitude1;
+    }
+
+    // Get the current probability of the qubit being in state |0⟩ or |1⟩
+    public double getProbabilityOfZero() {
+        return amplitude0.magnitudeSquared();
+    }
+
+    public double getProbabilityOfOne() {
+        return amplitude1.magnitudeSquared();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("|0⟩: %.4f |1⟩: %.4f", getProbabilityOfZero(), getProbabilityOfOne());
+    }
+}
